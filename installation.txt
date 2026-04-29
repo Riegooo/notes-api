@@ -1,0 +1,14 @@
+1. Project Initialization: 
+    - npm init -y
+
+2. Install Dependencies (Install Express, TypeScript, type definitions, and development tools)
+    - npm install express
+    - npm install -D typescript ts-node @types/node @types/express nodemon
+
+3. Configure TypeScript (Generate a tsconfig.json file to configure compiler options):
+    - npx tsc -init
+
+4. Auto restart server:
+    - npm install -D nodemon
+    - npm install -D ts-node typescript
+    - SETUP PACKAGE.JSON -> "dev": "nodemon --watch src --ext ts --exec ts-node src/app.ts"
