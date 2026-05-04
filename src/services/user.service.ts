@@ -1,41 +1,33 @@
 import { pool } from "../db/database";
 import { getSQL } from "../sql-loader";
 
-type user = {
-    username: string,
-    password: string
-}
-
-const users: user[] = [];
-
-export const createUser = async (username: string, password: string) => {
+export const createUserNote = async (title: String, content: String) => {
     
-    const create_account = getSQL('create_user.sql');
+    const createNote = getSQL('create_note.sql');
 
-    const check_username = await pool.query(create_account, [username, password]);
+    const checkUserNote = await pool.query(createNote, [title, content]);
 
-    const user = check_username.rows[0];
-    console.log(user)
+    if (checkUserNote.rows[0] === undefined) {
+        console.log("Undefined ROWS")
+    }else{
+        const userNotes = checkUserNote.rows[0];
+        console.log(userNotes);
+    }
 
 }
 
 
-export const loginUser = async (username: string, password: string) => {
+export const selectAllUserNotes = async () => {
 
-    const findUser = users.find(u => u.username === username);
+    const selectAll = getSQL('select_all_note.sql');
 
-    if (!findUser) {
-        throw new Error("User Account not found.");
+    const checkAllNotes = await pool.query(selectAll);
+
+    if (checkAllNotes.rows[0] === undefined) {
+        console.log("Undefined Rows");
+    } else {
+        const AllNotes = checkAllNotes.rows[0];
+        console.log(AllNotes);
     }
-
-    if (!(findUser.password === password)) {
-        throw new Error("Incorrect Password.")
-    }
-
-
-    return {
-        username: findUser.username
-    }
-
 
 }

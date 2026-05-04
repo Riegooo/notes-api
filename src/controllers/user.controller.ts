@@ -1,42 +1,26 @@
 import { Request, response, Response } from "express";
 import * as userSerivice from "../services/user.service";
 
-export const getUsers = (req: Request, res: Response) => {
-    res.json({ message: "Hello world", success: true});
+export const serverMessage = (req: Request, res: Response) => {
+    res.send("HELLO THIS IS A NOTE API!");
 }
 
-export const getId = (req: Request, res: Response) => {
-    res.send('ID');
+
+
+export const createNoteMessage = (req: Request, res: Response) => {
+    res.send("Create an note?");
 }
 
-export const getLogginAccount = (req: Request, res: Response) => {
-    res.json({message: "Hello Wold", sucess: true});
-}
 
-export const registerUser = async (req: Request, res: Response) => {
+
+export const createNote = async (req: Request, res: Response) => {
     try {
-        
-        const { username, password } = req.body;
+        const { title, content } = req.body;
 
-        const user = await userSerivice.createUser(username, password);
-        res.status(200).json({message: "successfully", success: true, data: user});
+        const createUserNote = await userSerivice.createUserNote(title, content);
+        res.status(200).json({message: "Create Note Sucessfully", success: true, data: createUserNote});
 
-    } catch (err: any) {
-        res.status(500).json({
-            message: err.message
-        })
-    }
-}
-
-export const loginAccount = async (req: Request, res: Response) => {
-    try {
-        
-        const { username, password } = req.body;
-
-        const user = await userSerivice.loginUser(username, password);
-        res.status(200).json({ message: "login successsfully", sucess: true, data: user});
-
-    } catch (err: any) {
+    } catch (err : any) {
         res.status(500).json({
             message: err.message
         })
@@ -44,3 +28,15 @@ export const loginAccount = async (req: Request, res: Response) => {
 }
 
 
+export const selectAllNotes = async (req: Request, res: Response) => {
+    try {
+
+        const UserAllNotes = await userSerivice.selectAllUserNotes();
+        res.status(200).json({ message: "Selected All!", sucess: true, data: UserAllNotes});
+
+    } catch (err : any) {
+        res.status(400).json({ 
+            message: err.message 
+        })
+    }
+}

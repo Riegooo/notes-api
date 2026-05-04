@@ -1,7 +1,7 @@
 {
   "name": "express_file",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repository contains my ongoing learning journey in backend development using Node.js and Express.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +23,13 @@
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Riegooo/backend-api-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Riegooo/backend-api-express/issues"
+  },
+  "homepage": "https://github.com/Riegooo/backend-api-express#readme"
 }

@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { 
-    checkUserInput 
+    checkTitleLength
 
 } from '../middleware/auth';
 
-import { registerUser, loginAccount } from '../controllers/user.controller';
+import { createNote } from '../controllers/user.controller';
 
 const router = Router();
 
-router.post('/users', checkUserInput, registerUser);
-router.post('/login', checkUserInput, loginAccount);
+
+router.post('/', checkTitleLength, createNote);
 
 export default router;
