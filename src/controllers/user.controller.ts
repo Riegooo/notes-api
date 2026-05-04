@@ -32,7 +32,7 @@ export const selectAllNotes = async (req: Request, res: Response) => {
     try {
 
         const UserAllNotes = await userSerivice.selectAllUserNotes();
-        res.status(200).json({ message: "Selected All!", sucess: true, data: UserAllNotes});
+        res.status(200).json({ message: "Selected All!", success: true, data: UserAllNotes});
 
     } catch (err : any) {
         res.status(400).json({ 

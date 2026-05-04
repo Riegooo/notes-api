@@ -4,7 +4,9 @@ import { serverMessage, createNoteMessage, selectAllNotes } from '../controllers
 const router = Router();
 
 router.get('/', serverMessage);
+
 router.get('/createNotes', createNoteMessage);
+
 router.get('/allnotes', selectAllNotes);
 
 export default router;

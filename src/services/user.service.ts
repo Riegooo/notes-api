@@ -1,6 +1,8 @@
 import { pool } from "../db/database";
 import { getSQL } from "../sql-loader";
 
+
+
 export const createUserNote = async (title: String, content: String) => {
     
     const createNote = getSQL('create_note.sql');
@@ -8,7 +10,7 @@ export const createUserNote = async (title: String, content: String) => {
     const checkUserNote = await pool.query(createNote, [title, content]);
 
     if (checkUserNote.rows[0] === undefined) {
-        console.log("Undefined ROWS")
+        console.log("Undefined ROWS");
     }else{
         const userNotes = checkUserNote.rows[0];
         console.log(userNotes);
@@ -23,11 +25,15 @@ export const selectAllUserNotes = async () => {
 
     const checkAllNotes = await pool.query(selectAll);
 
-    if (checkAllNotes.rows[0] === undefined) {
+
+    if (checkAllNotes.rows.length === undefined) {
         console.log("Undefined Rows");
-    } else {
-        const AllNotes = checkAllNotes.rows[0];
-        console.log(AllNotes);
-    }
+        return [];
+    } 
+
+    const Allnotes = checkAllNotes.rows;
+    console.log(Allnotes);
+
+    return Allnotes;
 
 }
