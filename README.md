@@ -1,28 +1,3 @@
-# 🚀 Express Backend Learning
+# 📝 Notes API
 
-This repository contains my ongoing learning journey in backend development using Node.js and Express.
-
----
-
-## 🛠️ Tech Stack
-
-* Node.js
-* Express.js
-
----
-
-## 🎯 Goal
-
-To improve my understanding of backend architecture and gradually build real-world API projects using Express.
-
----
-
-## 📌 Status
-
-🚧 Work in progress — continuously improving as I learn.
-
----
-
-## 👤 Author
-
-Riego Mercajedas
+A simple backend project for creating and managing notes using RESTful APIs. Built with Express and TypeScript as part of my backend learning journey.
