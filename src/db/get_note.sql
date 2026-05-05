@@ -1,0 +1,1 @@
+SELECT title, content FROM notes WHERE id = $1

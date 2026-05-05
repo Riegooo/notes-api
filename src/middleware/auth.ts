@@ -21,3 +21,22 @@ export function checkTitleLength(req: Request, res: Response, next: NextFunction
         });
     }
 }
+
+
+export function checkId(req: Request, res: Response, next: NextFunction) {
+    try {
+        
+        const id : number = req.body.id;
+
+        if (id < 0) {
+            res.status(400).json({ message: "Invalid note id", success: false });
+        } else {
+            next();
+        }
+
+    } catch (err : any) {
+        res.status(500).json({
+            message: err.message
+        })
+    }
+}
