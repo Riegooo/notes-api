@@ -1,4 +1,4 @@
-import { pool } from "../db/database";
+import { pool } from "../config/database";
 import { getSQL } from "../sql-loader";
 
 
