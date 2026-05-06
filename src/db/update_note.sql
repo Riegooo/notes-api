@@ -1,0 +1,1 @@
+UPDATE notes set title = $1, content = $2 WHERE id = $3 RETURNING *;
