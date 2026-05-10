@@ -8,7 +8,7 @@ export const updatedNote = async (title: string, content: string, id: number) =>
 
     const result = await pool.query(noteSql, [title, content, id]);
 
-    if (result.rows.length === 0) {
+    if (result.rowCount === 0) {
         throw new Error("NOTE_NOT_FOUND_OR_NOT_UPDATED");
     }
 
@@ -27,7 +27,7 @@ export const getNote = async (id: number) => {
         return [];
     }
 
-    if (checknoteid.rows.length === 0) {
+    if (checknoteid.rowCount === 0) {
         console.log("Invalid, ID NOT FOUND")
         throw new Error("NOT_FOUND");
     }
