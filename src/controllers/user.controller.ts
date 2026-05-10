@@ -38,22 +38,3 @@ export const selectAllNotes = async (req: Request, res: Response) => {
         })
     }
 }
-
-
-export const getNoteId = async (req: Request, res: Response) => {
-    try {
-
-        const id = req.body.id
-        const getNote = await userSerivice.getNote(id);
-        res.status(200).json({ message: "Get Note Successfully!", success: true, data: getNote });
-
-    } catch (err : any) {
-        if (err.message === "NOT_FOUND") {
-            res.status(500).json({
-                message: err.message
-            });
-        }
-        res.status(400).json({message: "Server error."});
-    }
-}
-

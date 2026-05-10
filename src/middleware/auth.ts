@@ -40,3 +40,15 @@ export function checkId(req: Request, res: Response, next: NextFunction) {
         })
     }
 }
+
+export function idNoteDeleted(req: Request, res: Response, next: NextFunction) {
+    try {
+        
+        
+
+    } catch (err: any) {
+        res.status(500).json({
+            message: err.message
+        });
+    }
+} 
